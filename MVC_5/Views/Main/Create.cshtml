@@ -1,0 +1,93 @@
+﻿@model MVC_5.Models.Registration
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Student Record</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h3 style="margin-inline-start:50px">Registration</h3>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2 required" })
+        <br />
+        <br />
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Enter Your First Name" } })
+            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Section, htmlAttributes: new { @class = "control-label col-md-2" })
+        <br />
+        <br />
+        <div class="col-md-10">
+            @Html.RadioButtonFor(model => model.Section, 'A', new { htmlAttributes = new { @class = "form-control", }, @checked = true })
+            <label>A</label>
+            @Html.RadioButtonFor(model => model.Section, 'B', new { htmlAttributes = new { @class = "form-control", } })
+            <label>B</label>
+            @Html.RadioButtonFor(model => model.Section, 'C', new { htmlAttributes = new { @class = "form-control", } })
+            <label>C</label>
+            @Html.ValidationMessageFor(model => model.Section, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-2 required" })
+        <br />
+        <br />
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.gender, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Enter Your Gender" } })
+            @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.city, htmlAttributes: new { @class = "control-label col-md-2 required" })
+        <br />
+        <br />
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.city,
+                                   new SelectList(ViewData["city"] as List<SelectListItem>,"Value","Text"),
+                                   "--select--",new{@class = "dropdown1 form-control",id="City",onchange = "onChangeId();" }
+                                   )
+            @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.age, htmlAttributes: new { @class = "control-label col-md-2 required" })
+        <br />
+        <br />
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.age, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Enter Your Age" } })
+            @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

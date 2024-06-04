@@ -1,0 +1,149 @@
+﻿body {
+    background-color:black;
+    color:white;
+    
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #32cf93;
+        text-decoration: none;
+    }
+
+h1,
+h2,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+    text-align: center;
+    color: white;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+    table th {
+        background-color: #ff9800;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #ccc;
+    }
+
+    table tr:nth-child(even) td {
+        background-color: #f2f2f2;
+    }
+
+    table tr:hover td {
+        background-color: #ffedcc;
+    }
+
+    table td {
+        background-color: #fff;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        font-weight: bold;
+    }
+
+    table td a{
+        color:black;
+        font-weight:bold;
+    }
+
+.form-group {
+    width: 600px;
+    margin: 10px;
+    padding: 15px;
+}
+
+    .form-group input[type="text"], input[type="number"] {
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    /* Styling for the submit button */
+    .form-group input[type="submit"] {
+        width: 50%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .form-group select {
+        width: 50%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+        /* Optional: Hover effect for the submit button */
+        .form-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+.field-validation-error{
+    color: red
+}
+
+.dl-horizontal {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+dt {
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+dd {
+    margin-bottom: 10px;
+}
+
+.required::after {
+    content: "*";
+    font-weight: bold;
+    color: red;
+}
+
+.btn-default {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-default:hover{
+    background-color: #45a049;
+}

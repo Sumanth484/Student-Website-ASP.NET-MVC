@@ -1,0 +1,74 @@
+﻿@model IEnumerable<MVC_5.Models.Registration>
+
+@{
+    ViewBag.Title = "Students List";
+    var totalcount = ViewBag.totalpages;
+    var currentpage = ViewBag.currentpage;
+}
+
+<h2>List of Students</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Section)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Section)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>
+@if (ViewData["message"] != null)
+ {
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewData["message"]")
+        }
+    </script>
+
+
+ }
+
+<body class="pagination">
+    @for (int i = 1; i <= totalcount; i++)
+    {
+        <body class="page-item" @(i == currentpage ? "active" : "")>
+            <a class="page-link" href="@Url.Action("Index",new {page = @i})">@i</a>
+        </body>
+    }
+</body>
+
+
